@@ -30,6 +30,6 @@ export default {
 }
 </script>
 
-<style scoped>
-  @import "../../../layui/css/layui.css";
+<style>
+
 </style>
