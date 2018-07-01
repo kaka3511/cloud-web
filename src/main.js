@@ -7,13 +7,13 @@ import axios from 'axios';
 
 //引入自定义组件
 import NavBar from './components/common/NavBar.vue'
-import LeftNav from './components/common/LeftNav.vue'
+import Core from './components/common/Core.vue'
 
 
 
 
 Vue.component('navBar',NavBar);
-Vue.component('leftNav',LeftNav);
+Vue.component('core',Core);
 
 Vue.config.productionTip = false;
 Vue.prototype.$ajax = axios;

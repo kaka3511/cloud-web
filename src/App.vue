@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <navBar location="shenzhen"></navBar>
-    <leftNav></leftNav>
+    <core></core>
   </div>
 </template>
 
