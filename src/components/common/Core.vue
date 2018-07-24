@@ -9,7 +9,7 @@
             <a href="">首页</a>
         </li>
         <li class="layui-nav-item layui-nav-itemed">
-          <a href="javascript:;">所有商品</a>
+          <a href="javascript:;">测试页面</a>
           <dl class="layui-nav-child">
             <dd>
                 <router-link :to="{name:'GoodsOne'}">
