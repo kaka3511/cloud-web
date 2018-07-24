@@ -13,7 +13,7 @@
           <dl class="layui-nav-child">
             <dd>
                 <router-link :to="{name:'GoodsOne'}">
-                <span>列表一</span>
+                <span>爬虫小测试</span>
                 </router-link>
             </dd>
             <dd>
