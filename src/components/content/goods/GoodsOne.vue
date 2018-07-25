@@ -14,7 +14,7 @@ export default {
       updateStatus:''
     }
   },
-  created:function(){
+  mounted:function(){
 
     layui.use('table', function(){
     var table = layui.table;
@@ -26,9 +26,11 @@ export default {
           {field:'id', width:120, title: 'ID', sort: true},
           {field:'title', width:500, title: '标题'},
           {field:'url', width:500, title: '链接',templet:function(d){
-            return '<a style="color: #FF0000" target="view_window" href="'+d.url+'">'+d.url+'</a>';}},
+            return '<a style="color: #3366FF" target="view_window" href="'+d.url+'">'+d.url+'</a>';}},
           {field:'updateTime', width:300, title: '更新时间'}
-        ]]
+        ]],
+        page: true,
+        limit:10
       });
     });
   },
