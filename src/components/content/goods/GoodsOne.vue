@@ -1,8 +1,15 @@
 <template>
   <div class="layui-body">
     <!-- 内容主体区域 -->
+    <div class="demoTable">
+      搜索标题：
+      <div class="layui-inline">
+          <input class="layui-input" name="keyword" id="demoReload" autocomplete="off">
+      </div>
+      <button class="layui-btn" data-type="reload">搜索</button>
+      <button class="layui-btn" v-on:click="updateNews">同步网易推荐新闻标题</button>
+    </div>
     <table class="layui-hide" id="test"></table>
-    <button class="layui-btn layui-btn-lg" v-on:click="updateNews">同步网易推荐新闻标题</button>
   </div>
 </template>
 
@@ -21,7 +28,8 @@ export default {
 
       table.render({
         elem: '#test',
-        url:'http://139.199.59.97:8081/cloud/news/queryNews',
+        // url:'http://139.199.59.97:8081/cloud/news/queryNews',
+        url:'http://localhost:80/cloud/news/queryNews',
         cols: [[
           {field:'id', width:120, title: 'ID', sort: true},
           {field:'title', width:500, title: '标题'},
@@ -30,8 +38,27 @@ export default {
           {field:'updateTime', width:300, title: '更新时间'}
         ]],
         page: true,
-        limit:10
+        limit:10,
+        id:'newsTable'
       });
+
+      var $ = layui.$, active = {
+        reload: function(){
+            var demoReload = $('#demoReload');
+
+            table.reload('newsTable', {
+                where: {
+                    keyword: demoReload.val()
+                }
+            });
+        }
+    };
+
+    $('.demoTable .layui-btn').on('click', function(){
+      var type = $(this).data('type');
+      active[type] ? active[type].call(this) : '';
+    });
+
     });
   },
 
