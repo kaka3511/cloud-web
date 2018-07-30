@@ -18,7 +18,7 @@
             </dd>
             <dd>
                 <router-link :to="{name:'GoodsTwo'}">
-                <span>列表二</span>
+                <span>文件上传测试</span>
                 </router-link>
             </dd>
             <dd>
