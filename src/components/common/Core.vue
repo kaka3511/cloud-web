@@ -23,7 +23,7 @@
             </dd>
             <dd>
                 <router-link :to="{name:'GoodsThree'}">
-                <span>列表三</span>
+                <span>echart测试</span>
                 </router-link>
             </dd>
           </dl>
