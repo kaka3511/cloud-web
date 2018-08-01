@@ -33,7 +33,7 @@ export default {
 
           table.render({
             elem: '#test',
-            url:'http://139.199.59.97:8081/cloud/file/queryFile',
+            url:'http://139.199.59.97:8081/cloud/file/queryFile?fileType=image',
             // url:'http://localhost:80/cloud/file/queryFile?fileType=image',
             cols: [[
               {field:'id', width:120, title: 'ID', sort: true},
@@ -80,8 +80,8 @@ export default {
           var uploadInst = upload.render({
             accept: 'file',
             elem: '#test1' //绑定元素
-            // ,url: 'http://139.199.59.97:8081/cloud/file/uploadFile' //上传接口
-            ,url:'http://localhost:80/cloud/file/uploadFile'
+            ,url: 'http://139.199.59.97:8081/cloud/file/uploadFile' //上传接口
+            // ,url:'http://localhost:80/cloud/file/uploadFile'
             ,done: function(res){
                 layer.msg("上传成功", {icon: 6});
               //上传完毕回调
