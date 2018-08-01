@@ -11,11 +11,20 @@
           </div>
         </div>
     </div>
+
+    <!-- 模拟进度条 -->
+        <div class="layui-progress layui-progress-big" lay-showpercent="true" lay-filter="demo" hidden="true">
+          <div class="layui-progress-bar layui-bg-pink" lay-percent="0%"></div>
+        </div>
+        <br>
+
     已上传的图片
     <table class="layui-hide" id="test" lay-filter="test"></table>
     <hr>
     已上传的文件
     <table class="layui-hide" id="test2" lay-filter="test2"></table>
+
+
   </div>
 </template>
 
@@ -45,7 +54,7 @@ export default {
               {field:'updateTime', width:300, title: '更新时间'}
             ]],
             page: true,
-            limit:10
+            limit:5
           });
         });
 
@@ -68,22 +77,42 @@ export default {
               {field:'updateTime', width:300, title: '更新时间'}
             ]],
             page: true,
-            limit:10
+            limit:5
           });
         });
 
+
         //上传
         layui.use('upload', function(){
+          var $ = layui.jquery;
+          var element = layui.element;
           var upload = layui.upload;
-
+          var timer;
           //执行实例
           var uploadInst = upload.render({
             accept: 'file',
             elem: '#test1' //绑定元素
             ,url: 'http://139.199.59.97:8081/cloud/file/uploadFile' //上传接口
             // ,url:'http://localhost:80/cloud/file/uploadFile'
+            ,before: function(obj){ //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
+                  $('.layui-progress').removeAttr("hidden");
+                  var n = 0;
+                  timer = setInterval(function(){
+                    n = n + Math.random()*10|0;
+                    if(n>90){
+                      n = 99;
+                      clearInterval(timer);
+                    }
+                    element.progress('demo', n+'%');
+                  }, 300+Math.random()*1000);
+
+              }
             ,done: function(res){
+                clearInterval(timer);
+                element.progress('demo', 100+'%');
                 layer.msg("上传成功", {icon: 6});
+                setTimeout(function(){$('.layui-progress').attr("hidden", "hidden");},2000);
+
               //上传完毕回调
             }
             ,error: function(){
@@ -92,6 +121,8 @@ export default {
             }
           });
         });
+
+
 
 
 
