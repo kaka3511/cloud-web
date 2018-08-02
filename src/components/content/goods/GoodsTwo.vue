@@ -1,30 +1,22 @@
 <template>
-  <div class="layui-body">
+    <div class="uploadFile">
     <!-- 内容主体区域 -->
-    <div style="padding: 15px;">
-
-        <div class="layui-upload">
-          <button type="button" class="layui-btn" id="test1">上传文件</button>
-          <div class="layui-upload-list">
-            <img class="layui-upload-img" id="demo1">
-            <p id="demoText"></p>
-          </div>
-        </div>
-    </div>
-
-    <!-- 模拟进度条 -->
-        <div class="layui-progress layui-progress-big" lay-showpercent="true" lay-filter="demo" hidden="true">
-          <div class="layui-progress-bar layui-bg-pink" lay-percent="0%"></div>
-        </div>
-        <br>
-
-    已上传的图片
-    <table class="layui-hide" id="test" lay-filter="test"></table>
-    <hr>
-    已上传的文件
-    <table class="layui-hide" id="test2" lay-filter="test2"></table>
-
-
+	    <div class="layui-upload">
+	      <button type="button" class="layui-btn" id="test1">上传文件</button>
+	      <div class="layui-upload-list">
+	        <img class="layui-upload-img" id="demo1">
+	        <p id="demoText"></p>
+	      </div>
+	    </div>
+	
+	    <!-- 模拟进度条 -->
+	    <div class="layui-progress layui-progress-big" lay-showpercent="true" lay-filter="demo" hidden="true">
+	      <div class="layui-progress-bar layui-bg-pink" lay-percent="0%"></div>
+	    </div>
+	    <h4><span>已上传的图片</span></h4>
+	    <table class="layui-hide" id="test" lay-filter="test"></table>
+	    <h4><span>已上传的文件</span></h4> 
+	    <table class="layui-hide" id="test2" lay-filter="test2"></table>
   </div>
 </template>
 
@@ -54,7 +46,8 @@ export default {
               {field:'updateTime', width:300, title: '更新时间'}
             ]],
             page: true,
-            limit:5
+            limit:5,
+            limits:[5,10,15,20]
           });
         });
 
@@ -77,7 +70,8 @@ export default {
               {field:'updateTime', width:300, title: '更新时间'}
             ]],
             page: true,
-            limit:5
+            limit:5,
+            limits:[5,10,15,20]
           });
         });
 
@@ -123,7 +117,20 @@ export default {
         });
 
 
+    layui.use('util', function(){
+      var util = layui.util;
 
+      //执行
+      util.fixbar({
+        bar1: true
+        ,click: function(type){
+          console.log(type);
+          if(type === 'bar1'){
+            layer.msg('©author ：kaka3511')
+          }
+        }
+      });
+    });
 
 
 
@@ -132,4 +139,7 @@ export default {
 </script>
 
 <style>
+	 h4 { color:#333; font-size: 18px; padding: 10px 0px ;}
+	 h4 span { position: relative; padding-left: 20px;}
+	 h4 span:after { content: ""; display: block; position: absolute; top: 0; left: 0; width: 3px; background: #009688; height: 100%;}
 </style>

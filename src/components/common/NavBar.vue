@@ -1,12 +1,15 @@
 <template>
-  <ul class="layui-nav">
+	<div class="header">
+		<ul class="layui-nav">
         <li class="layui-nav-item">
           <label href="">天气<span class="layui-badge" style="white-space: nowrap;">{{wetherDesc}} | {{weatherTemp}}</span></label>
         </li>
         <li class="layui-nav-item" lay-unselect="" style="float:right;">
           <a href="javascript:;"><img src="../../assets/logo.png" class="layui-nav-img">我</a>
         </li>
-    </ul>
+   </ul>
+	</div>
+  
 </template>
 
 <script>
@@ -31,5 +34,5 @@ export default {
 </script>
 
 <style>
-
+ .header .layui-nav {z-index: 1000;}
 </style>

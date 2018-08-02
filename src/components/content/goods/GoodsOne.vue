@@ -1,8 +1,8 @@
 <template>
-  <div class="layui-body">
+  <div>
     <!-- 内容主体区域 -->
     <div class="demoTable">
-      搜索标题：
+                 搜索标题：
       <div class="layui-inline">
           <input class="layui-input" name="keyword" id="demoReload" autocomplete="off">
       </div>
@@ -36,13 +36,14 @@ export default {
           {field:'url', width:500, title: '链接',templet:function(d){
             return '<a style="color: #3366FF" target="view_window" href="'+d.url+'">'+d.url+'</a>';}},
           {field:'updateTime', width:300, title: '更新时间'},
-          {field:'operate', width:300, title: '操作',templet:function(d){
+          {field:'operate', width:250, title: '操作',templet:function(d){
             return '<a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>'+
                   '<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>'+
                   '<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>';}}
         ]],
         page: true,
         limit:16,
+        limits:[16,32,64],
         id:'newsTable'
       });
 
@@ -194,4 +195,5 @@ export default {
 </script>
 
 <style>
+	.demoTable { padding-bottom: 20px;}
 </style>

@@ -1,11 +1,10 @@
 <template>
-  <div class="layui-body">
+
     <!-- 内容主体区域 -->
-    <div style="padding: 15px;">
+    <div style="padding: 15px;" class="echart">
 
         <div id="chartmain" style="width:600px; height: 400px;"></div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -62,7 +61,20 @@ export default {
                     myChart.setOption(option);
                      });
 
+    layui.use('util', function(){
+      var util = layui.util;
 
+      //执行
+      util.fixbar({
+        bar1: true
+        ,click: function(type){
+          console.log(type);
+          if(type === 'bar1'){
+            layer.msg('©author ：kaka3511')
+          }
+        }
+      });
+    });
 
   }
 }
