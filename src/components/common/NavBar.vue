@@ -5,11 +5,16 @@
           <label href="">天气<span class="layui-badge" style="white-space: nowrap;">{{wetherDesc}} | {{weatherTemp}}</span></label>
         </li>
         <li class="layui-nav-item" lay-unselect="" style="float:right;">
-          <a href="javascript:;"><img src="../../assets/logo.png" class="layui-nav-img">我</a>
+          <a href="javascript:;"><img src="../../assets/logo.png" class="layui-nav-img">未登录</a>
+           <dl class="layui-nav-child"> <!-- 二级菜单 -->
+            <router-link :to="{name:'Login'}">
+                <dd><a href="">退出</a></dd>
+            </router-link>
+          </dl>
         </li>
    </ul>
 	</div>
-  
+
 </template>
 
 <script>

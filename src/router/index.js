@@ -5,6 +5,8 @@ import GoodsOne from '@/components/content/goods/GoodsOne'
 import GoodsTwo from '@/components/content/goods/GoodsTwo'
 import GoodsThree from '@/components/content/goods/GoodsThree'
 
+import Login from '@/components/content/login/Login'
+
 Vue.use(Router)
 
 export default new Router({
@@ -13,6 +15,7 @@ export default new Router({
     {name: 'Home',path: '/home',component: Home},
     {name: 'GoodsOne',path: '/goods/goodsOne',component: GoodsOne},
     {name: 'GoodsTwo',path: '/goods/GoodsTwo',component: GoodsTwo},
-    {name: 'GoodsThree',path: '/goods/GoodsThree',component: GoodsThree}
+    {name: 'GoodsThree',path: '/goods/GoodsThree',component: GoodsThree},
+    {name: 'Login',path: '/login/Login',component: Login}
   ]
 })
