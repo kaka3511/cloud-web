@@ -94,7 +94,7 @@ export default {
 
                         alert("登录成功");
                         sessionStorage.setItem("token",JSON.parse(JSON.stringify(result))['responseBody']['token']);
-                        window.location.href='http://localhost:8080/#/';
+                        window.location.href='http://139.199.59.97:8111/cloud-web/';
                     }else{
                         alert("登录失败");
                       }
