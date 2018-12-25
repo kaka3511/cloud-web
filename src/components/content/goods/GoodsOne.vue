@@ -8,6 +8,19 @@
       </div>
       <button class="layui-btn" data-type="reload">搜索</button>
       <button class="layui-btn" v-on:click="updateNews">同步网易推荐新闻标题</button>
+      <hr>
+      <div class="layui-upload">
+        <a href="http://www.kaka3511.club/新闻上传模板.xlsx">模板下载</a>
+        <button type="button" class="layui-btn" id="uploadBtn">上传数据</button>
+        <button type="button" class="layui-btn"
+        onclick="window.location.href='http://139.199.59.97:8081/cloud/news/exportNews'">导出数据</button>
+        <!-- 模拟进度条 -->
+      <div class="layui-progress layui-progress-big" lay-showpercent="true" lay-filter="demo" hidden="true">
+        <div class="layui-progress-bar layui-bg-pink" lay-percent="0%"></div>
+      </div>
+
+
+      </div>
     </div>
     <table class="layui-hide" id="test" lay-filter="test"></table>
   </div>
@@ -29,7 +42,7 @@ export default {
       table.render({
         elem: '#test',
         url:'http://139.199.59.97:8081/cloud/news/queryNews',
-        // url:'http://localhost:80/cloud/news/queryNews',
+        // url:'http://139.199.59.97:80/cloud/news/queryNews',
         cols: [[
           {field:'id', width:120, title: 'ID', sort: true},
           {field:'title', width:500, title: '标题'},
@@ -166,6 +179,58 @@ export default {
         }
       });
     });
+
+
+
+
+
+
+
+
+
+
+
+
+    //上传
+        layui.use('upload', function(){
+          var $ = layui.jquery;
+          var element = layui.element;
+          var upload = layui.upload;
+          var timer;
+          //执行实例
+          var uploadInst = upload.render({
+            accept: 'file',
+            elem: '#uploadBtn' //绑定元素
+            // ,url: 'http://139.199.59.97:8081/cloud/news/uploadNews' //上传接口
+            ,url:'http://139.199.59.97:8081/cloud/news/uploadNews'
+            ,before: function(obj){ //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
+                  $('.layui-progress').removeAttr("hidden");
+                  var n = 0;
+                  timer = setInterval(function(){
+                    n = n + Math.random()*10|0;
+                    if(n>90){
+                      n = 50;
+                      clearInterval(timer);
+                    }
+                    element.progress('demo', n+'%');
+                  }, 300+Math.random()*1000);
+
+              }
+            ,done: function(res){
+                clearInterval(timer);
+                element.progress('demo', 100+'%');
+                layer.msg("上传成功", {icon: 6});
+                setTimeout(function(){$('.layui-progress').attr("hidden", "hidden");},1000);
+
+
+              //上传完毕回调
+            }
+            ,error: function(){
+               layer.msg("上传失败", {icon: 6});
+              //请求异常回调
+            }
+          });
+        });
 
 
 

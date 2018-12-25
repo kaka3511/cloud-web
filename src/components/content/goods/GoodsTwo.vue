@@ -8,14 +8,14 @@
 	        <p id="demoText"></p>
 	      </div>
 	    </div>
-	
+
 	    <!-- 模拟进度条 -->
 	    <div class="layui-progress layui-progress-big" lay-showpercent="true" lay-filter="demo" hidden="true">
 	      <div class="layui-progress-bar layui-bg-pink" lay-percent="0%"></div>
 	    </div>
 	    <h4><span>已上传的图片</span></h4>
 	    <table class="layui-hide" id="test" lay-filter="test"></table>
-	    <h4><span>已上传的文件</span></h4> 
+	    <h4><span>已上传的文件</span></h4>
 	    <table class="layui-hide" id="test2" lay-filter="test2"></table>
   </div>
 </template>
@@ -35,7 +35,7 @@ export default {
           table.render({
             elem: '#test',
             url:'http://139.199.59.97:8081/cloud/file/queryFile?fileType=image',
-            // url:'http://localhost:80/cloud/file/queryFile?fileType=image',
+            // url:'http://139.199.59.97:80/cloud/file/queryFile?fileType=image',
             cols: [[
               {field:'id', width:120, title: 'ID', sort: true},
               {field:'fileName', width:700, title: '名称'},
@@ -59,7 +59,7 @@ export default {
           table.render({
             elem: '#test2',
             url:'http://139.199.59.97:8081/cloud/file/queryFile',
-            // url:'http://localhost:80/cloud/file/queryFile',
+            // url:'http://139.199.59.97:80/cloud/file/queryFile',
             cols: [[
               {field:'id', width:120, title: 'ID', sort: true},
               {field:'fileName', width:700, title: '名称'},
@@ -87,7 +87,7 @@ export default {
             accept: 'file',
             elem: '#test1' //绑定元素
             ,url: 'http://139.199.59.97:8081/cloud/file/uploadFile' //上传接口
-            // ,url:'http://localhost:80/cloud/file/uploadFile'
+            // ,url:'http://139.199.59.97:80/cloud/file/uploadFile'
             ,before: function(obj){ //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
                   $('.layui-progress').removeAttr("hidden");
                   var n = 0;
