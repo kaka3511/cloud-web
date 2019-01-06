@@ -29,7 +29,7 @@
           </dl>
         </li>
         <li class="layui-nav-item"><a href="">云市场</a></li>
-        <li class="layui-nav-item"><a href="">发布商品</a></li>
+        <li class="layui-nav-item"><a href="139.199.59.97:19999">NetData监控</a></li>
 
 
       </ul>
@@ -68,7 +68,7 @@ export default {
       	   $(".layui-side").animate({left:"0px"});
       	    $(".site-mobile-shade").show();
       	}
-      	
+
       })
       $(".site-mobile-shade").on("click",function(){
       	  $(".layui-side").animate({left:"-200px"});
@@ -76,7 +76,7 @@ export default {
       	   $(".layui-side").removeClass("active");
       })
     });
-    
+
   }
 }
 </script>
@@ -121,5 +121,5 @@ export default {
        left: -200px;
      }
    }
-     
+
 </style>
