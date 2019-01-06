@@ -29,7 +29,7 @@
           </dl>
         </li>
         <li class="layui-nav-item"><a href="">云市场</a></li>
-        <li class="layui-nav-item"><a href="139.199.59.97:19999">NetData监控</a></li>
+        <li class="layui-nav-item"><a href="http://139.199.59.97:19999">NetData监控</a></li>
 
 
       </ul>
