@@ -10,7 +10,7 @@
       <button class="layui-btn" v-on:click="updateNews">同步网易推荐新闻标题</button>
       <hr>
       <div class="layui-upload">
-        <a href="http://www.kaka3511.club/新闻上传模板.xlsx">模板下载</a>
+        <a href="http://139.199.59.97/新闻上传模板.xlsx">模板下载</a>
         <button type="button" class="layui-btn" id="uploadBtn">上传数据</button>
         <button type="button" class="layui-btn"
         onclick="window.location.href='http://139.199.59.97:8081/cloud/news/exportNews'">导出数据</button>
